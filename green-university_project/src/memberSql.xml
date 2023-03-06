@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+	<insert id="insert" parameterType="member03_Mybatis.MemberDTO">
+		insert into memBasic values(#{memberId}, #{password}, #{mailAdress}, #{memberName}, #{birthDate}, 
+								#{phoneNum}, #{gender}, #{korGrade}, #{engGrade}, #{mathGrade}, #{average});
+	</insert>
+	<select id="searchID" parameterType="String" resultType="member03_Mybatis.MemberDTO">
+		select * from memBasic where memberId = #{loginID};
+	</select>
+	<select id="searchNP" parameterType="member03_Mybatis.MemberDTO" resultType="member03_Mybatis.MemberDTO">
+		select * from memBasic where memberName = #{memberName} and phoneNum = #{phoneNum};
+	</select>
+	<update id="update" parameterType="member03_Mybatis.MemberDTO">
+		update memBasic set password = #{password} where memberId = #{memberId};
+	</update>
+	<delete id="delete" parameterType="String">
+		delete from memBasic where memberId = #{loginID};
+	</delete>
+	<select id="selectAll" resultType="member03_Mybatis.MemberDTO">
+		select * from memBasic;
+	</select>
+</mapper>
