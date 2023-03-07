@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="member">
 	<insert id="insert" parameterType="member03_Mybatis.MemberDTO">
-		insert into memBasic values(#{memberId}, #{password}, #{mailAdress}, #{memberName}, #{birthDate}, 
+		insert into memBasic values(#{memberId}, #{password}, #{mailAddress}, #{memberName}, #{birthDate}, 
 								#{phoneNum}, #{gender}, #{korGrade}, #{engGrade}, #{mathGrade}, #{average});
 	</insert>
 	<select id="searchID" parameterType="String" resultType="member03_Mybatis.MemberDTO">
